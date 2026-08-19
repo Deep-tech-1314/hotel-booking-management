@@ -1,19 +1,35 @@
+# Dependencies
 node_modules/
 client/node_modules/
 server/node_modules/
+
+# Environment variables
 .env
 .env.*
 !.env.example
+
+# Build & Output directories
 client/dist/
 dist/
 build/
+coverage/
+server/coverage/
+
+# Logs & System files
 *.log
 .DS_Store
 Thumbs.db
+*.tmp
 
+# Vercel & Agent Tooling
 .vercel
 .agents/
 .claude/
+skills-lock.json
 scratch/
 scratch_render/
 scratch_media/
+
+# Python scripts/virtualenvs
+*.py
+__pycache__/
