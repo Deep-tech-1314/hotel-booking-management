@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130">
+        <animate attributeName="stop-color" values="#1A2130;#2c3e50;#1A2130" dur="20s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#C5A880">
+        <animate attributeName="stop-color" values="#C5A880;#d35400;#C5A880" dur="20s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Animated Sky -->
+  <rect width="1920" height="700" fill="url(#skyGrad)" />
+  
+  <!-- Sun/Moon Element -->
+  <circle cx="960" cy="500" r="150" fill="#FFEAA7" filter="url(#glow)" opacity="0.8">
+    <animate attributeName="cy" values="500;450;500" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="fill" values="#FFEAA7;#fdcb6e;#FFEAA7" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Ocean -->
+  <rect x="0" y="700" width="1920" height="380" fill="url(#oceanGrad)" />
+
+  <!-- Infinity Pool Edge -->
+  <path d="M0 850 L1920 850 L1920 1080 L0 1080 Z" fill="#1e293b" opacity="0.9" />
+  <path d="M0 850 L1920 850" stroke="#C5A880" stroke-width="4" opacity="0.5" />
+  
+  <!-- Pool Reflection (Animated) -->
+  <rect x="0" y="852" width="1920" height="228" fill="#FFEAA7" opacity="0.1">
+    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="5s" repeatCount="indefinite" />
+  </rect>
+
+  <!-- Minimalist Palm Silhouettes -->
+  <path d="M150 1080 Q160 850 250 750 Q230 780 200 850 Q180 950 150 1080" fill="#020617" />
+  <path d="M1770 1080 Q1760 850 1670 750 Q1690 780 1720 850 Q1740 950 1770 1080" fill="#020617" />
+</svg>

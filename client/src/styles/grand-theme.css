@@ -1,0 +1,842 @@
+/* =========================================
+   The Grand Resort Dashboard Theme
+   Pixel-perfect match to screenshot design
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+.grand-theme {
+  --grand-bg: #f5f2eb;
+  --grand-sidebar: #ffffff;
+  --grand-card: #ffffff;
+  --grand-card-hover: #f7f4ef;
+  
+  --grand-text: #1e293b;
+  --grand-text-heading: #0f172a;
+  --grand-text-muted: #64748b;
+  --grand-text-gold: #b48535;
+  
+  --grand-gold: #b48535;
+  --grand-gold-dark: #8e6522;
+  --grand-gold-transparent: rgba(180, 133, 53, 0.12);
+  
+  --grand-success: #059669;
+  --grand-success-transparent: rgba(16, 185, 129, 0.12);
+  
+  --grand-danger: #dc2626;
+  --grand-danger-transparent: rgba(239, 68, 68, 0.12);
+  
+  --grand-warning: #d97706;
+  
+  --grand-border: #e2e8f0;
+  --grand-border-light: #cbd5e1;
+
+  --grand-font-serif: 'Playfair Display', serif;
+  --grand-font-sans: 'Inter', sans-serif;
+  
+  background-color: var(--grand-bg);
+  color: var(--grand-text);
+  font-family: var(--grand-font-sans);
+  min-height: 100vh;
+}
+
+/* Dark Mode Theme Overrides */
+[data-theme="dark"] .grand-theme,
+.dark .grand-theme,
+.grand-theme.dark-mode {
+  --grand-bg: #0f1423;
+  --grand-sidebar: #131722;
+  --grand-card: #1c2135;
+  --grand-card-hover: #232a42;
+  
+  --grand-text: #e2e8f0;
+  --grand-text-heading: #ffffff;
+  --grand-text-muted: #94a3b8;
+  --grand-text-gold: #f5c543;
+  
+  --grand-gold: #f5c543;
+  --grand-gold-dark: #d9aa32;
+  --grand-gold-transparent: rgba(245, 197, 67, 0.15);
+  
+  --grand-border: #2a314b;
+  --grand-border-light: #374151;
+}
+
+/* Base Resets & Standardized Typography System inside .grand-theme */
+.grand-theme h1, .grand-h1 {
+  font-family: var(--grand-font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--grand-text-heading, #0f172a);
+  margin: 0;
+}
+
+.grand-theme h2, .grand-h2 {
+  font-family: var(--grand-font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--grand-text-heading, #0f172a);
+  margin: 0;
+}
+
+.grand-theme h3, .grand-h3 {
+  font-family: var(--grand-font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--grand-text-heading, #0f172a);
+  margin: 0;
+}
+
+.grand-theme h4, .grand-h4 {
+  font-family: var(--grand-font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--grand-text, #1e293b);
+  margin: 0;
+}
+
+.grand-theme p, .grand-body {
+  font-family: var(--grand-font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--grand-text, #1e293b);
+  margin: 0;
+}
+
+.grand-subtext {
+  font-family: var(--grand-font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--grand-text-muted, #64748b);
+}
+
+.grand-theme label, .grand-label {
+  font-family: var(--grand-font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--grand-text-muted, #64748b);
+  line-height: 1.4;
+  display: block;
+}
+
+.grand-theme input,
+.grand-theme select,
+.grand-theme textarea,
+.grand-input {
+  font-family: var(--grand-font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--grand-text, #1e293b);
+}
+
+.grand-stat-value {
+  font-family: var(--grand-font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--grand-text-heading, #0f172a);
+}
+
+.grand-theme a {
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--grand-font-sans);
+}
+
+/* Layout */
+.grand-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.grand-sidebar-container {
+  width: 250px;
+  background-color: var(--grand-sidebar);
+  border-right: 1px solid var(--grand-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.grand-logo-area {
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.grand-logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--grand-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grand-bg);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.grand-logo-text {
+  font-family: var(--grand-font-serif);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.grand-logo-subtext {
+  font-family: var(--grand-font-sans);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: var(--grand-text-muted);
+}
+
+.grand-nav {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grand-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--grand-text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.grand-nav-item:hover {
+  background-color: var(--grand-card);
+  color: var(--grand-text);
+}
+
+.grand-nav-item.active {
+  background-color: var(--grand-card);
+  color: var(--grand-gold);
+  border: 1px solid var(--grand-gold-transparent);
+}
+
+.grand-nav-badge {
+  margin-left: auto;
+  background-color: var(--grand-gold);
+  color: var(--grand-bg);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Main Content Area */
+.grand-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--grand-bg);
+}
+
+/* Header */
+.grand-header {
+  height: 80px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--grand-border);
+}
+
+.grand-header-title {
+  font-size: 24px;
+}
+
+.grand-header-sub {
+  font-size: 13px;
+  color: var(--grand-text-muted);
+  font-family: var(--grand-font-sans);
+}
+
+.grand-header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.grand-search {
+  background-color: var(--grand-card);
+  border: 1px solid var(--grand-border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 350px;
+}
+
+.grand-search input {
+  background: transparent;
+  border: none;
+  color: var(--grand-text);
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+}
+
+.grand-search input::placeholder {
+  color: var(--grand-text-muted);
+}
+
+.grand-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.grand-notification {
+  position: relative;
+  color: var(--grand-text-muted);
+  cursor: pointer;
+}
+
+.grand-notification-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--grand-danger);
+  border-radius: 50%;
+  border: 2px solid var(--grand-bg);
+}
+
+.grand-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.grand-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.grand-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.grand-profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grand-text);
+}
+
+.grand-profile-role {
+  font-size: 12px;
+  color: var(--grand-text-muted);
+}
+
+/* Page Content */
+.grand-content {
+  flex: 1;
+  padding: 32px 40px;
+  overflow-y: auto;
+}
+
+.grand-content::-webkit-scrollbar {
+  width: 8px;
+}
+.grand-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.grand-content::-webkit-scrollbar-thumb {
+  background: var(--grand-border);
+  border-radius: 4px;
+}
+
+/* Components */
+.grand-card {
+  background-color: var(--grand-card);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--grand-border);
+}
+
+.grand-btn {
+  background-color: var(--grand-gold);
+  color: var(--grand-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.grand-btn:hover {
+  background-color: var(--grand-gold-dark);
+}
+
+.grand-btn-outline {
+  background-color: transparent;
+  color: var(--grand-text);
+  border: 1px solid var(--grand-border-light);
+}
+.grand-btn-outline:hover {
+  background-color: var(--grand-card-hover);
+}
+
+.grand-pill {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.grand-pill-success {
+  background-color: var(--grand-success-transparent);
+  color: var(--grand-success);
+}
+
+.grand-pill-danger {
+  background-color: var(--grand-danger-transparent);
+  color: var(--grand-danger);
+}
+
+/* Tables */
+.grand-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grand-table th {
+  text-align: left;
+  padding: 16px;
+  color: var(--grand-text-muted);
+  font-weight: 500;
+  font-size: 13px;
+  border-bottom: 1px solid var(--grand-border);
+}
+
+.grand-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--grand-border);
+  font-size: 14px;
+}
+
+.grand-table tbody tr:hover {
+  background-color: var(--grand-card-hover);
+}
+
+.grand-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+}
+.grand-status.checked-in {
+  background-color: var(--grand-success-transparent);
+  color: var(--grand-success);
+  border-color: var(--grand-success-transparent);
+}
+.grand-status.pending {
+  background-color: var(--grand-gold-transparent);
+  color: var(--grand-gold);
+  border-color: var(--grand-gold-transparent);
+}
+.grand-status.confirmed {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.15);
+}
+.grand-status.checked-out {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.15);
+}
+
+/* Grids */
+.grand-grid {
+  display: grid;
+  gap: 24px;
+}
+.grand-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grand-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grand-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* ===================================================
+   Grand Dashboard — Chart Wrapper
+   =================================================== */
+.grand-chart-wrapper {
+  background: var(--grand-card);
+  border: 1px solid var(--grand-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.grand-chart-wrapper h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.grand-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.grand-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--grand-text-muted);
+}
+.grand-chart-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* ===================================================
+   Grand Dashboard — Activity Feed
+   =================================================== */
+.grand-activity-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.grand-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--grand-border);
+}
+.grand-activity-item:last-child {
+  border-bottom: none;
+}
+.grand-activity-avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.grand-activity-content {
+  flex: 1;
+  min-width: 0;
+}
+.grand-activity-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grand-text);
+}
+.grand-activity-desc {
+  font-size: 12px;
+  color: var(--grand-text-muted);
+  margin-top: 2px;
+}
+.grand-activity-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+.grand-activity-amount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--grand-text);
+}
+
+/* ===================================================
+   Grand Dashboard — Room Status Grid
+   =================================================== */
+.grand-room-status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.grand-room-status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(28, 33, 53, 0.5);
+  border-radius: 12px;
+  border: 1px solid var(--grand-border);
+}
+.grand-room-dot {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  border-radius: 50%;
+}
+.grand-room-dot.occupied { background: var(--grand-gold); box-shadow: 0 0 8px rgba(245, 197, 67, 0.4); }
+.grand-room-dot.available { background: var(--grand-success); box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+.grand-room-dot.cleaning { background: var(--grand-warning); box-shadow: 0 0 8px rgba(245, 158, 11, 0.4); }
+.grand-room-dot.maintenance { background: var(--grand-danger); box-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
+.grand-room-status-label {
+  font-size: 12px;
+  color: var(--grand-text-muted);
+}
+.grand-room-status-count {
+  font-size: 20px;
+  font-family: var(--grand-font-serif);
+  font-weight: 600;
+  color: #ffffff;
+  margin-left: auto;
+}
+
+/* ===================================================
+   Grand Dashboard — Satisfaction Score
+   =================================================== */
+.grand-satisfaction {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--grand-card);
+  border-radius: 16px;
+  border: 1px solid var(--grand-border);
+}
+.grand-satisfaction-score {
+  font-size: 48px;
+  font-family: var(--grand-font-serif);
+  font-weight: 700;
+  color: var(--grand-gold);
+  line-height: 1;
+}
+.grand-satisfaction-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--grand-gold);
+  margin-bottom: 4px;
+}
+.grand-satisfaction-label {
+  font-size: 12px;
+  color: var(--grand-text-muted);
+}
+
+/* ===================================================
+   Grand Dashboard — Responsive
+   =================================================== */
+@media (max-width: 1280px) {
+  .grand-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grand-room-status-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .grand-sidebar-container { width: 220px; }
+  .grand-content { padding: 24px; }
+  .grand-header { padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+  .grand-layout { flex-direction: column; }
+  .grand-sidebar-container {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--grand-border);
+  }
+  .grand-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 8px 16px;
+    gap: 4px;
+  }
+  .grand-nav-item { white-space: nowrap; padding: 8px 12px; font-size: 12px; }
+  .grand-logo-area { padding: 16px 16px; }
+  .grand-main { height: auto; }
+  .grand-content { padding: 16px; overflow-y: visible; }
+  .grand-header { height: 60px; padding: 0 16px; }
+  .grand-header-center { display: none; }
+  .grand-grid-4 { grid-template-columns: 1fr; }
+  .grand-grid-2 { grid-template-columns: 1fr; }
+  .grand-room-status-grid { grid-template-columns: 1fr; }
+}
+
+/* =================================================
+   Logo (now a Link to home) + Theme toggle button
+   ================================================= */
+.grand-logo-area { cursor: pointer; transition: opacity 0.2s ease; }
+.grand-logo-area:hover { opacity: 0.85; }
+
+.grand-theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--grand-card);
+  border: 1px solid var(--grand-border);
+  color: var(--grand-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.grand-theme-toggle:hover {
+  background-color: var(--grand-card-hover);
+  color: var(--grand-gold);
+  border-color: var(--grand-gold-transparent);
+  transform: translateY(-1px);
+}
+.grand-theme-toggle:active { transform: translateY(0); }
+
+/* =================================================
+   Light mode override for the Grand dashboard.
+   The dashboard ships dark by default; when the user
+   picks light mode globally we repaint it with a warm
+   ivory palette. Gold accents are preserved. Falls back
+   to the dark default whenever no [data-theme="light"]
+   is set, so this is fully backward-compatible.
+   ================================================= */
+[data-theme="light"] .grand-theme {
+  --grand-bg: #f6f3ec;
+  --grand-sidebar: #ffffff;
+  --grand-card: #ffffff;
+  --grand-card-hover: #f3efe6;
+
+  --grand-text: #1e2230;
+  --grand-text-muted: #6b7280;
+  --grand-text-gold: #a9842b;
+
+  --grand-gold: #c5a880;
+  --grand-gold-dark: #a9842b;
+  --grand-gold-transparent: rgba(197, 168, 128, 0.18);
+
+  --grand-border: #e7e2d6;
+  --grand-border-light: #d8d2c4;
+}
+[data-theme="light"] .grand-theme h1,
+[data-theme="light"] .grand-theme h2,
+[data-theme="light"] .grand-theme h3,
+[data-theme="light"] .grand-theme h4 {
+  color: #1e2230;
+}
+[data-theme="light"] .grand-room-status-count {
+  color: #1e2230;
+}
+[data-theme="light"] .grand-card,
+[data-theme="light"] .grand-chart-wrapper,
+[data-theme="light"] .grand-satisfaction {
+  box-shadow: 0 2px 12px rgba(30, 34, 48, 0.06);
+}
+
+/* =================================================
+   Payment Method Options Styling
+   ================================================= */
+.payment-method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--card-bg);
+  position: relative;
+}
+
+.payment-option:hover {
+  border-color: var(--primary);
+  background-color: rgba(197, 168, 128, 0.05);
+}
+
+.payment-option.active {
+  border-color: var(--primary);
+  background-color: rgba(197, 168, 128, 0.1);
+  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.15);
+}
+
+.payment-option.active.success {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+}
+
+.payment-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.payment-option strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.payment-option span {
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+/* =================================================
+   Grand Dashboard — Extra Mobile Enhancements
+   ================================================= */
+@media (max-width: 768px) {
+  .grand-mobile-search-trigger {
+    display: inline-flex !important;
+  }
+}
+@media (max-width: 600px) {
+  .grand-profile-info {
+    display: none !important;
+  }
+}
+.grand-dropdown-link:hover {
+  background-color: var(--grand-card-hover);
+}
+
+/* ===================================================
+   Google Translate Overrides & Nav Bar Unblocker
+   =================================================== */
+html {
+  top: 0px !important;
+  margin-top: 0px !important;
+}
+
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight {
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
